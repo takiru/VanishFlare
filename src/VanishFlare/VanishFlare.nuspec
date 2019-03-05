@@ -16,9 +16,11 @@
     <copyright>Copyright 2019 Takeru Yamaguchi.</copyright>
     <tags>Metroit winforms Databind Framework</tags>
     <dependencies>
-      <dependency id="EntityFramework" version="6.2.0" />
-      <dependency id="Metroit.45" version="1.0.5" />
-      <dependency id="Metroit.Windows.Forms.45" version="1.0.19" />
+      <group targetFramework="net45">
+        <dependency id="EntityFramework" version="6.2.0" />
+        <dependency id="Metroit.45" version="1.0.5" />
+        <dependency id="Metroit.Windows.Forms.45" version="1.0.19" />
+      </group>
     </dependencies>
   </metadata>
 </package>
