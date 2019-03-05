@@ -1,0 +1,106 @@
+﻿<#@ template language="C#" debug="true" hostspecific="true" #>
+<#@ output extension="cs"#>
+<#@ import namespace="System"#>
+<#@ include file="Util.tt" #>
+<#
+	var project = GetCurrentProject();
+	string directory = Path.GetDirectoryName(Host.TemplateFile);
+    string generatedFilePath = Path.Combine(directory, OutputFileName);
+
+	// ファイル内容を書き出し
+    var classList = GetClasses();
+	WriteAll(classList);
+	
+    //ファイルに出力      
+    SaveOutput(generatedFilePath, project);
+#>
+<#+
+	private const string TargetNamespace = "Sample.Models";
+	private const string OutputFileName = "FieldControlMapR.cs";
+
+    // 対象名前空間に存在するクラス情報を得る。
+    private List<ClassItem> GetClasses() {
+	    var result = new List<ClassItem>();
+
+		string directory = Path.GetDirectoryName(Host.TemplateFile);
+		string generatedFilePath = Path.Combine(directory, OutputFileName);
+
+	    var project = GetCurrentProject();
+		foreach (var projectItem in GetProjectItems(project)) {
+            var classes = GetCodeElements(projectItem)
+                .Where(el => el.Kind == vsCMElement.vsCMElementClass).Cast<CodeClass>()
+                .Where(cl => cl.Namespace.FullName == TargetNamespace);
+
+            foreach (var classData in classes)
+		    {
+				// 書き出すファイルパスのものは対象外とする
+				var filePath = classData.ProjectItem.FileNames[0];
+				if (filePath == generatedFilePath)
+				{
+					continue;
+				}
+
+				result.Add(new ClassItem() {
+					ClassName = classData.Name,
+					GenericClassName = classData.Name
+                });
+		    }
+		}
+		return result;
+	}
+#>
+
+
+<#+
+    // 全体を書き出す
+    private void WriteAll(List<ClassItem> classList)
+	{
+#>
+namespace <#= TargetNamespace #>
+{
+<#+
+		foreach (var item in classList)
+		{
+			WriteClass(item);
+		}
+#>
+}
+<#+
+	}
+#>
+
+
+<#+
+	// クラスコードを書き出す
+	private void WriteClass(ClassItem item) {
+		string T4TemplatePath = Path.GetDirectoryName(Host.TemplateFile);
+		string fileName = Path.GetFileName(Host.TemplateFile);
+#>
+    /// <summary>
+	/// <#= item.GenericClassName #> オブジェクトのフィールドを、コントロールへマッピングするための機能を提供します。
+    /// </summary>
+    /// <remarks>
+    /// このクラスは<#=T4TemplatePath+"\\" + fileName#>により
+    /// <#=DateTime.Now.ToString()#>に自動生成されました。
+    /// このファイルをエディタで直接編集しないでください
+    /// </remarks>
+    public sealed class <#= item.ClassName #>FieldControlMap : Vf.Windows.Forms.FieldControlMapBase<<#= item.GenericClassName #>> { }
+
+<#+
+	}
+#>
+
+<#+
+	/// <summary>
+	/// クラス情報を有する。
+	/// </summary>
+	class ClassItem
+    {
+		// 出力対象クラス名。
+		public string ClassName { get; set; }
+
+		// 出力対象クラスのジェネリック用クラス名。
+		public string GenericClassName { get; set; }
+    }
+
+#>

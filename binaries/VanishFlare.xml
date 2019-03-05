@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VanishFlare</name>
+    </assembly>
+    <members>
+        <member name="T:Vf.Windows.Forms.FieldControlMapBase">
+            <summary>
+            フィールドで保持する値をコントロールにマッピングするための要素を提供します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.FieldControlMapBase.Control">
+            <summary>
+            マッピングを行うコントロールオブジェクトの取得または設定します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.FieldControlMapBase.FieldName">
+            <summary>
+            マッピングを行う値を保持するフィールド名の取得または設定します。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldControlMapBase.ToString">
+            <summary>
+            マッピング情報を表す文字列を返します。
+            </summary>
+            <returns>文字列。</returns>
+        </member>
+        <member name="T:Vf.Windows.Forms.FieldControlMapBase`1">
+            <summary>
+            フィールドで保持する値をコントロールにマッピングするための要素を提供します。
+            </summary>
+            <typeparam name="T">フィールドで選択可能とするクラス要素。</typeparam>
+        </member>
+        <member name="T:Vf.Windows.Forms.FieldItemTree">
+            <summary>
+            フィールド名の構造を提供します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.FieldItemTree.FieldName">
+            <summary>
+            現在のフィールド名を取得します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.FieldItemTree.Child">
+            <summary>
+            子のフィールドツリーを取得します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.FieldItemTree.HasChild">
+            <summary>
+            子のフィールドツリーを有しているかどうかを取得します。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.FieldListConverter">
+            <summary>
+            FieldControlMapBase クラスのジェネリックに指定されている型から、フィールド項目名を選択可能とする。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            変換可能な文字列かどうかを取得します。
+            </summary>
+            <param name="context">コンテキスト情報。</param>
+            <param name="sourceType">変換元のタイプ。</param>
+            <returns>true:変換可能, false:変換不可能。</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            文字列を受け入れます。
+            </summary>
+            <param name="context">コンテキスト情報。</param>
+            <param name="culture">カルチャー情報。</param>
+            <param name="value">変換元の値。</param>
+            <returns>文字エンコーディング。</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            ドロップダウンで選択可能にします。
+            </summary>
+            <param name="context">コンテキスト情報。</param>
+            <returns>true</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            選択可能な文字列のリストを取得します。
+            </summary>
+            <param name="context">コンテキスト情報。</param>
+            <returns>文字エンコーディング名のリスト。</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.GetStandardValuesExclusive(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            選択肢以外の入力を認めません。
+            </summary>
+            <param name="context">コンテキスト情報。</param>
+            <returns>true</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.GetGenericType(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            指定されたFieldControlMapクラスから、ジェネリックの型を求める。
+            </summary>
+            <param name="context">ITypeDescriptorContext オブジェクト。</param>
+            <returns>ジェネリックの型。</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldListConverter.ScanProperties(System.Type,System.String)">
+            <summary>
+            選択候補となるプロパティを走査して取得する。
+            </summary>
+            <param name="type">走査対象となるType。</param>
+            <param name="parentTree">ジェネリックの上位ツリー情報。</param>
+            <returns>選択候補のプロパティ。</returns>
+        </member>
+        <member name="T:Vf.Windows.Forms.FieldsMap">
+            <summary>
+            コントロールへフィールドをマッピングする処理を提供します。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.Map(Vf.Windows.Forms.FieldControlMapBase[],System.Object)">
+            <summary>
+            選択されたアイテムの内容を、指定されたコントロールへマッピングを行います。
+            </summary>
+            <param name="fieldTextMaps">FieldControlMap オブジェクト。</param>
+            <param name="item">選択されたアイテムオブジェクト。</param>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.CreateFieldItemTree(System.String)">
+            <summary>
+            選択されたフィールドのアロー文字列からフィールドのツリー構造を取得する。
+            </summary>
+            <param name="fieldItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.GetTargetValue(Vf.Windows.Forms.FieldItemTree,System.Object)">
+            <summary>
+            選択されたフィールドのツリー構造から、選択されたアイテムオブジェクトの値を取得する。
+            </summary>
+            <param name="tree">選択されたフィールドのツリー構造。</param>
+            <param name="item">選択されたアイテムオブジェクト。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapToControl(System.Windows.Forms.Control,System.Object)">
+            <summary>
+            コントロールのオブジェクトに応じて値を設定する。
+            </summary>
+            <param name="control">コントロール。</param>
+            <param name="value">マッピングする値。</param>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapControlDateTimePicker(System.Windows.Forms.DateTimePicker,System.Object)">
+            <summary>
+            DateTimePicker は Value に適用する。
+            </summary>
+            <param name="control"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapControlCheckBox(System.Windows.Forms.CheckBox,System.Object)">
+            <summary>
+            CheckBox は Checked に適用する。
+            </summary>
+            <param name="control"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapControlRadioButton(System.Windows.Forms.RadioButton,System.Object)">
+            <summary>
+            RadioButton は Checked に適用する。
+            </summary>
+            <param name="control"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapControlComboBox(System.Windows.Forms.ComboBox,System.Object)">
+            <summary>
+            ComboBox は Text または SelectedItem に適用する。
+            </summary>
+            <param name="control"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Vf.Windows.Forms.SrTextBoxBase`1">
+            <summary>
+            フィールドマッピングを行う要素を提供します。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Vf.Windows.Forms.SrTextBoxBase`1.#ctor">
+            <summary>
+            新しい SrTextBoxBase のインスタンスを生成します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.SrTextBoxBase`1.FieldControlMaps">
+            <summary>
+            候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.SrTextBoxBase`1.MapFields">
+            <summary>
+            選択されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.StringFieldControlMap">
+            <summary>
+            string オブジェクトのフィールドを、コントロールへマッピングするための機能を提供します。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.SrStringTextBox">
+            <summary>
+            string クラスをフィールドマッピング可能なTextBoxです。
+            </summary>
+        </member>
+    </members>
+</doc>

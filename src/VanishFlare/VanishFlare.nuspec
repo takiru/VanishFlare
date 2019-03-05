@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <title>$title$</title>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <description>$description$</description>
+    <licenseUrl>https://github.com/takiru/VanishFlare/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/takiru/VanishFlare</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>
+      0.1.0 Release
+    </releaseNotes>
+    <copyright>Copyright 2019 Takeru Yamaguchi.</copyright>
+    <tags>Metroit winforms Databind Framework</tags>
+    <dependencies>
+      <dependency id="EntityFramework" version="6.2.0" />
+      <dependency id="Metroit.45" version="1.0.5" />
+      <dependency id="Metroit.Windows.Forms.45" version="1.0.19" />
+    </dependencies>
+  </metadata>
+</package>

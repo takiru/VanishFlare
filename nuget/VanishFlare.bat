@@ -1,0 +1,1 @@
+nuget pack "..\src\VanishFlare\VanishFlare.csproj" -Prop Configuration=Release
