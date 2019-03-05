@@ -22,8 +22,30 @@ namespace Sample
         {
             var comboList = new List<Models.ComboBoxItem>()
             {
-                new Models.ComboBoxItem() {DispValue = "aaa1", ValueValue = "aaa" },
-                new Models.ComboBoxItem() {DispValue = "bbb2", ValueValue = "bbb" }
+                new Models.ComboBoxItem() {
+                    DispValue = "aaa1",
+                    ValueValue = "aaa",
+                    List = new List<Models.DataTest>()
+                    {
+                        new Models.DataTest()
+                        {
+                            Column1 = "Column1-1",
+                            Column2 = "Column1-2"
+                        }
+                    }
+                },
+                new Models.ComboBoxItem() {
+                    DispValue = "bbb2",
+                    ValueValue = "bbb",
+                    List = new List<Models.DataTest>()
+                    {
+                        new Models.DataTest()
+                        {
+                            Column1 = "Column2-1",
+                            Column2 = "Column2-2"
+                        }
+                    }
+                }
             };
             comboBox1.DataSource = comboList;
             comboBox1.DisplayMember = "DispValue";

@@ -30,6 +30,7 @@
         {
             Vf.Windows.Forms.StringFieldControlMap stringFieldControlMap1 = new Vf.Windows.Forms.StringFieldControlMap();
             Sample.Models.ComboBoxItemFieldControlMap comboBoxItemFieldControlMap1 = new Sample.Models.ComboBoxItemFieldControlMap();
+            Sample.Models.ComboBoxItemFieldControlMap comboBoxItemFieldControlMap2 = new Sample.Models.ComboBoxItemFieldControlMap();
             Sample.Models.CompleteTestListItemFieldControlMap completeTestListItemFieldControlMap1 = new Sample.Models.CompleteTestListItemFieldControlMap();
             Sample.Models.CompleteTestListItemFieldControlMap completeTestListItemFieldControlMap2 = new Sample.Models.CompleteTestListItemFieldControlMap();
             Sample.Models.CompleteTestListItemFieldControlMap completeTestListItemFieldControlMap3 = new Sample.Models.CompleteTestListItemFieldControlMap();
@@ -39,6 +40,7 @@
             Sample.Models.EfSample1FieldControlMap efSample1FieldControlMap2 = new Sample.Models.EfSample1FieldControlMap();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metDateTimePicker1 = new Metroit.Windows.Forms.MetDateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -54,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.efSample1TextBox1 = new Sample.EfSample1TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metDateTimePicker1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.srStringTextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.srComboBoxItemTextBox1)).BeginInit();
@@ -81,6 +84,15 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 8;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 282);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 19;
             // 
             // metDateTimePicker1
             // 
@@ -169,8 +181,11 @@
             this.srComboBoxItemTextBox1.CustomAutoCompleteMode = Metroit.Windows.Forms.CustomAutoCompleteMode.KeysSuggest;
             comboBoxItemFieldControlMap1.Control = this.comboBox1;
             comboBoxItemFieldControlMap1.FieldName = "ValueValue";
+            comboBoxItemFieldControlMap2.Control = this.dataGridView1;
+            comboBoxItemFieldControlMap2.FieldName = "List";
             this.srComboBoxItemTextBox1.FieldControlMaps = new Sample.Models.ComboBoxItemFieldControlMap[] {
-        comboBoxItemFieldControlMap1};
+        comboBoxItemFieldControlMap1,
+        comboBoxItemFieldControlMap2};
             this.srComboBoxItemTextBox1.Location = new System.Drawing.Point(582, 192);
             this.srComboBoxItemTextBox1.Name = "srComboBoxItemTextBox1";
             this.srComboBoxItemTextBox1.Size = new System.Drawing.Size(100, 19);
@@ -280,6 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.efSample1TextBox1);
@@ -300,6 +316,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metDateTimePicker1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.srStringTextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.srComboBoxItemTextBox1)).EndInit();
@@ -328,6 +345,7 @@
         private EfSample1TextBox efSample1TextBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

@@ -140,6 +140,11 @@ namespace Vf.Windows.Forms
         /// <param name="value">マッピングする値。</param>
         protected virtual void MapToControl(Control control, object value)
         {
+            if (IsDataSourceControl(control))
+            {
+                MapControlDataSource(control, value);
+            }
+
             if (control is DateTimePicker)
             {
                 MapControlDateTimePicker((DateTimePicker)control, value);
@@ -168,10 +173,43 @@ namespace Vf.Windows.Forms
         }
 
         /// <summary>
+        /// 対象コントロールがDataSource適用オブジェクトかどうかを取得する。
+        /// </summary>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <returns>true:適用オブジェクトである, false:適用オブジェクトでない。</returns>
+        protected virtual bool IsDataSourceControl(object control)
+        {
+            var fullNames = Properties.Resources.DataSourceControlFullNameList
+                    .Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            var targetFullName = control.GetType().FullName;
+            if (fullNames.Contains(targetFullName))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// DataSource プロパティへの適用を行う。
+        /// </summary>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <param name="value">マッピングデータ。</param>
+        private void MapControlDataSource(object control, object value)
+        {
+            var descriptor = TypeDescriptor.GetProperties(control).Find("DataSource", true);
+            if (descriptor == null)
+            {
+                return;
+            }
+            descriptor.SetValue(control, value);
+        }
+
+        /// <summary>
         /// DateTimePicker は Value に適用する。
         /// </summary>
-        /// <param name="control"></param>
-        /// <param name="value"></param>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <param name="value">マッピングデータ。</param>
         private void MapControlDateTimePicker(DateTimePicker control, object value)
         {
             if (value is DateTime)
@@ -186,8 +224,8 @@ namespace Vf.Windows.Forms
         /// <summary>
         /// CheckBox は Checked に適用する。
         /// </summary>
-        /// <param name="control"></param>
-        /// <param name="value"></param>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <param name="value">マッピングデータ。</param>
         private void MapControlCheckBox(CheckBox control, object value)
         {
             var valueType = value.GetType();
@@ -233,8 +271,8 @@ namespace Vf.Windows.Forms
         /// <summary>
         /// RadioButton は Checked に適用する。
         /// </summary>
-        /// <param name="control"></param>
-        /// <param name="value"></param>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <param name="value">マッピングデータ。</param>
         private void MapControlRadioButton(RadioButton control, object value)
         {
             var valueType = value.GetType();
@@ -280,8 +318,8 @@ namespace Vf.Windows.Forms
         /// <summary>
         /// ComboBox は Text または SelectedItem に適用する。
         /// </summary>
-        /// <param name="control"></param>
-        /// <param name="value"></param>
+        /// <param name="control">マッピング先コントロールオブジェクト。</param>
+        /// <param name="value">マッピングデータ。</param>
         private void MapControlComboBox(ComboBox control, object value)
         {
             // DataSource が未指定の場合は、Textに文字列として適用する
