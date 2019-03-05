@@ -11,7 +11,7 @@ namespace Sample
     /// <summary>
     /// string クラスをフィールドマッピング可能なTextBoxです。
     /// </summary>
-    public class CompleteTestListItemTextBox : SrTextBoxBase<Models.CompleteTestListItemFieldControlMap>
+    public class CompleteTestListItemTextBox : VfTextBoxBase<Models.CompleteTestListItemFieldControlMap>
     {
     }
 }

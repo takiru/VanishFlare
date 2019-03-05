@@ -47,7 +47,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.srStringTextBox1 = new Vf.Windows.Forms.SrStringTextBox();
+            this.srStringTextBox1 = new Vf.Windows.Forms.VfMapTextBox();
             this.srComboBoxItemTextBox1 = new Sample.SrComboBoxItemTextBox();
             this.completeTestListItemTextBox1 = new Sample.CompleteTestListItemTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -335,7 +335,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private Vf.Windows.Forms.SrStringTextBox srStringTextBox1;
+        private Vf.Windows.Forms.VfMapTextBox srStringTextBox1;
         private SrComboBoxItemTextBox srComboBoxItemTextBox1;
         private CompleteTestListItemTextBox completeTestListItemTextBox1;
         private System.Windows.Forms.Label label2;

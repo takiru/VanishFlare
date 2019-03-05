@@ -10,12 +10,12 @@ namespace Vf.Windows.Forms
     /// フィールドマッピングを行う要素を提供します。
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class SrTextBoxBase<T> : MetTextBox, IFieldComtrolMaps<T> where T : FieldControlMapBase
+    public abstract class VfLNumericTextBoxBase<T> : MetNumericTextBox, IFieldComtrolMaps<T> where T : FieldControlMapBase
     {
         /// <summary>
-        /// 新しい SrTextBoxBase のインスタンスを生成します。
+        /// 新しい VfLNumericTextBoxBase のインスタンスを生成します。
         /// </summary>
-        public SrTextBoxBase() : base()
+        public VfLNumericTextBoxBase() : base()
         {
             if (this.IsDesignMode())
             {
@@ -27,7 +27,7 @@ namespace Vf.Windows.Forms
         /// <summary>
         /// 候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。
         /// </summary>
-        [Category("Sourire 動作")]
+        [Category("VanishFlare 動作")]
         [Description("候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。")]
         public T[] FieldControlMaps { get; set; }
 

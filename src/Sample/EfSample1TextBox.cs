@@ -11,7 +11,7 @@ namespace Sample
     /// <summary>
     /// string クラスをフィールドマッピング可能なTextBoxです。
     /// </summary>
-    public class EfSample1TextBox : SrTextBoxBase<Models.EfSample1FieldControlMap>
+    public class EfSample1TextBox : VfTextBoxBase<Models.EfSample1FieldControlMap>
     {
     }
 }

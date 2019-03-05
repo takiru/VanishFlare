@@ -71,11 +71,23 @@
     <Compile Include="Windows.Forms\FieldsMap.cs" />
     <Compile Include="Windows.Forms\IFieldComtrolMaps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Windows.Forms\SrTextBoxBase.cs">
+    <Compile Include="Windows.Forms\VfLNumericTextBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows.Forms\VfLimitedTextBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows.Forms\VfMapNumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows.Forms\VfMapLimitedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows.Forms\VfTextBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows.Forms\StringFieldControlMap.cs" />
-    <Compile Include="Windows.Forms\SrStringTextBox.cs">
+    <Compile Include="Windows.Forms\VfMapTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

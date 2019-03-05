@@ -11,7 +11,7 @@ namespace Sample
     /// <summary>
     /// string クラスをフィールドマッピング可能なTextBoxです。
     /// </summary>
-    public class SrComboBoxItemTextBox : SrTextBoxBase<Models.ComboBoxItemFieldControlMap>
+    public class SrComboBoxItemTextBox : VfTextBoxBase<Models.ComboBoxItemFieldControlMap>
     {
     }
 }
