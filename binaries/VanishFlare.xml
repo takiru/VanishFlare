@@ -4,6 +4,29 @@
         <name>VanishFlare</name>
     </assembly>
     <members>
+        <member name="T:Vf.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:Vf.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:Vf.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:Vf.Properties.Resources.DataSourceControlFullNameList">
+             <summary>
+               System.Windows.Forms.DataGridView
+            FarPoint.Win.Spread.FpSpread
+            FarPoint.Win.Spread.SheetView に類似しているローカライズされた文字列を検索します。
+             </summary>
+        </member>
         <member name="T:Vf.Windows.Forms.FieldControlMapBase">
             <summary>
             フィールドで保持する値をコントロールにマッピングするための要素を提供します。
@@ -143,51 +166,117 @@
             <param name="control">コントロール。</param>
             <param name="value">マッピングする値。</param>
         </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.IsDataSourceControl(System.Object)">
+            <summary>
+            対象コントロールがDataSource適用オブジェクトかどうかを取得する。
+            </summary>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <returns>true:適用オブジェクトである, false:適用オブジェクトでない。</returns>
+        </member>
+        <member name="M:Vf.Windows.Forms.FieldsMap.MapControlDataSource(System.Object,System.Object)">
+            <summary>
+            DataSource プロパティへの適用を行う。
+            </summary>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <param name="value">マッピングデータ。</param>
+        </member>
         <member name="M:Vf.Windows.Forms.FieldsMap.MapControlDateTimePicker(System.Windows.Forms.DateTimePicker,System.Object)">
             <summary>
             DateTimePicker は Value に適用する。
             </summary>
-            <param name="control"></param>
-            <param name="value"></param>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <param name="value">マッピングデータ。</param>
         </member>
         <member name="M:Vf.Windows.Forms.FieldsMap.MapControlCheckBox(System.Windows.Forms.CheckBox,System.Object)">
             <summary>
             CheckBox は Checked に適用する。
             </summary>
-            <param name="control"></param>
-            <param name="value"></param>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <param name="value">マッピングデータ。</param>
         </member>
         <member name="M:Vf.Windows.Forms.FieldsMap.MapControlRadioButton(System.Windows.Forms.RadioButton,System.Object)">
             <summary>
             RadioButton は Checked に適用する。
             </summary>
-            <param name="control"></param>
-            <param name="value"></param>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <param name="value">マッピングデータ。</param>
         </member>
         <member name="M:Vf.Windows.Forms.FieldsMap.MapControlComboBox(System.Windows.Forms.ComboBox,System.Object)">
             <summary>
             ComboBox は Text または SelectedItem に適用する。
             </summary>
-            <param name="control"></param>
-            <param name="value"></param>
+            <param name="control">マッピング先コントロールオブジェクト。</param>
+            <param name="value">マッピングデータ。</param>
         </member>
-        <member name="T:Vf.Windows.Forms.SrTextBoxBase`1">
+        <member name="T:Vf.Windows.Forms.VfLNumericTextBoxBase`1">
             <summary>
             フィールドマッピングを行う要素を提供します。
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Vf.Windows.Forms.SrTextBoxBase`1.#ctor">
+        <member name="M:Vf.Windows.Forms.VfLNumericTextBoxBase`1.#ctor">
             <summary>
-            新しい SrTextBoxBase のインスタンスを生成します。
+            新しい VfLNumericTextBoxBase のインスタンスを生成します。
             </summary>
         </member>
-        <member name="P:Vf.Windows.Forms.SrTextBoxBase`1.FieldControlMaps">
+        <member name="P:Vf.Windows.Forms.VfLNumericTextBoxBase`1.FieldControlMaps">
             <summary>
             候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。
             </summary>
         </member>
-        <member name="M:Vf.Windows.Forms.SrTextBoxBase`1.MapFields">
+        <member name="M:Vf.Windows.Forms.VfLNumericTextBoxBase`1.MapFields">
+            <summary>
+            選択されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.VfLimitedTextBoxBase`1">
+            <summary>
+            フィールドマッピングを行う要素を提供します。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Vf.Windows.Forms.VfLimitedTextBoxBase`1.#ctor">
+            <summary>
+            新しい VfLimitedTextBoxBase のインスタンスを生成します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.VfLimitedTextBoxBase`1.FieldControlMaps">
+            <summary>
+            候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.VfLimitedTextBoxBase`1.MapFields">
+            <summary>
+            選択されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.VfMapNumericTextBox">
+            <summary>
+            string クラスをフィールドマッピング可能な MetNumericTextBox です。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.VfMapLimitedTextBox">
+            <summary>
+            string クラスをフィールドマッピング可能な MetLimitedTextBox です。
+            </summary>
+        </member>
+        <member name="T:Vf.Windows.Forms.VfTextBoxBase`1">
+            <summary>
+            フィールドマッピングを行う要素を提供します。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Vf.Windows.Forms.VfTextBoxBase`1.#ctor">
+            <summary>
+            新しい VfTextBoxBase のインスタンスを生成します。
+            </summary>
+        </member>
+        <member name="P:Vf.Windows.Forms.VfTextBoxBase`1.FieldControlMaps">
+            <summary>
+            候補選択値のフィールド値を、表示する値としてマッピングするコントロールを指定します。
+            </summary>
+        </member>
+        <member name="M:Vf.Windows.Forms.VfTextBoxBase`1.MapFields">
             <summary>
             選択されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
             </summary>
@@ -197,9 +286,9 @@
             string オブジェクトのフィールドを、コントロールへマッピングするための機能を提供します。
             </summary>
         </member>
-        <member name="T:Vf.Windows.Forms.SrStringTextBox">
+        <member name="T:Vf.Windows.Forms.VfMapTextBox">
             <summary>
-            string クラスをフィールドマッピング可能なTextBoxです。
+            string クラスをフィールドマッピング可能な MetTextBox です。
             </summary>
         </member>
     </members>
