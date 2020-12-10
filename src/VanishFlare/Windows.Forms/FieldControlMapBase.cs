@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// フィールドで保持する値をコントロールにマッピングするための要素を提供します。

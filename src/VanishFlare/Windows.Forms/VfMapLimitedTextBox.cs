@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// string クラスをフィールドマッピング可能な MetLimitedTextBox です。

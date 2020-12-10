@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sample.DbContexts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+using Sample.Entities;
 
 namespace Sample
 {
@@ -16,30 +19,36 @@ namespace Sample
         public Form1()
         {
             InitializeComponent();
+            orderHistoriesDgv.AutoGenerateColumns = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var comboList = new List<Models.ComboBoxItem>()
+            var comboList = new List<MapFieldControls.ListItem>()
             {
-                new Models.ComboBoxItem() {
+                new MapFieldControls.ListItem() {
                     DispValue = "aaa1",
                     ValueValue = "aaa",
-                    List = new List<Models.DataTest>()
+                    List = new List<MapFieldControls.DataTest>()
                     {
-                        new Models.DataTest()
+                        new MapFieldControls.DataTest()
                         {
                             Column1 = "Column1-1",
                             Column2 = "Column1-2"
+                        },
+                        new MapFieldControls.DataTest()
+                        {
+                            Column1 = "Column1-3",
+                            Column2 = "Column1-4"
                         }
                     }
                 },
-                new Models.ComboBoxItem() {
+                new MapFieldControls.ListItem() {
                     DispValue = "bbb2",
                     ValueValue = "bbb",
-                    List = new List<Models.DataTest>()
+                    List = new List<MapFieldControls.DataTest>()
                     {
-                        new Models.DataTest()
+                        new MapFieldControls.DataTest()
                         {
                             Column1 = "Column2-1",
                             Column2 = "Column2-2"
@@ -79,8 +88,8 @@ namespace Sample
 
 
 
-            var list = new List<Models.CompleteTestListItem>();
-            list.Add(new Models.CompleteTestListItem()
+            var list = new List<MapFieldControls.SimpleItem>();
+            list.Add(new MapFieldControls.SimpleItem()
             {
                 Column1 = "aaa1 disp",
                 Column2 = DateTime.Now,
@@ -89,7 +98,7 @@ namespace Sample
                 ComboItem = "aaa"
             });
 
-            list.Add(new Models.CompleteTestListItem()
+            list.Add(new MapFieldControls.SimpleItem()
             {
                 Column1 = "aaa2 disp",
                 Column2 = new DateTime(2010, 10, 12),
@@ -99,56 +108,42 @@ namespace Sample
             });
 
             completeTestListItemTextBox1.CustomAutoCompleteBox.DataSource = list;
-
-
-
-            var efList = new List<Models.EfSample1>();
-            var efSample1 = new Models.EfSample1()
-            {
-                Sample1Data = "Sample1Data"
-            };
-            try
-            {
-                var efSample3 = new Models.EfSample3()
-                {
-                    Sample3Data = "Data3"
-                };
-                efSample1.EfSample2.Add(new Models.EfSample2()
-                {
-                    Sample2Data = "Sample2Data"
-                });
-                efSample1.EfSample2.Local[0].EfSample3.Add(efSample3);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            efList.Add(efSample1);
-
-            efSample1TextBox1.CustomAutoCompleteBox.DataSource = efList;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //niigataTextBox1.Text = "aaa2 disp";
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            decimal a = 100 ^ 100;
-
-            int b;
-            b = (int)a;
-            Console.WriteLine(b);
-
-            short c;
-            c = (short)b;
-            Console.WriteLine(c);
-        }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
-            completeTestListItemTextBox1.MapFields();
+            completeTestListItemTextBox1.Text = "aaa2 disp";
+            //completeTestListItemTextBox1.MapFields();
         }
+
+        #region EntityFramework
+
+        private void userIdText_CandidateBoxOpening(object sender, EventArgs e)
+        {
+            userIdText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
+        }
+
+        private void userIdItemText_CandidateBoxOpening(object sender, EventArgs e)
+        {
+            userIdItemText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
+        }
+
+        private void remapSimpleButton_Click(object sender, EventArgs e)
+        {
+            userIdText.MapFields();
+        }
+
+        private void remapReSearchButton_Click(object sender, EventArgs e)
+        {
+            userIdText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
+            userIdText.CustomAutoCompleteBox.DecideItemForText(userIdText.Text);
+        }
+
+        private List<UserInfo> FindUserCandidate()
+        {
+            var context = new DefaultDbContext();
+            return context.UserInfos.Include(u => u.OrderHistories).ToList();
+        }
+
+        #endregion
     }
 }

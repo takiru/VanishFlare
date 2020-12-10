@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// フィールド名の構造を提供します。

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// コントロールへフィールドをマッピングする処理を提供します。
@@ -49,7 +49,7 @@ namespace Vf.Windows.Forms
         /// <returns></returns>
         private FieldItemTree CreateFieldItemTree(string fieldItem)
         {
-            var splitFieldItem = fieldItem.Split(new string[] { "->" }, StringSplitOptions.None);
+            var splitFieldItem = fieldItem.Split('.');
 
             var treeList = new List<FieldItemTree>();
 
@@ -143,6 +143,7 @@ namespace Vf.Windows.Forms
             if (IsDataSourceControl(control))
             {
                 MapControlDataSource(control, value);
+                return;
             }
 
             if (control is DateTimePicker)

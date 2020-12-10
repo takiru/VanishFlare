@@ -4,7 +4,7 @@ using System.Text;
 using Metroit.Windows.Forms;
 using Metroit.Windows.Forms.Extensions;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// フィールドマッピングを行う要素を提供します。

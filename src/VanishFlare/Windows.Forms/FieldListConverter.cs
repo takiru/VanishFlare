@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.Text;
 using System.Reflection;
 using System.Globalization;
+using VanishFlare.DataAnnotations;
 
-namespace Vf.Windows.Forms
+namespace VanishFlare.Windows.Forms
 {
     /// <summary>
     /// FieldControlMapBase クラスのジェネリックに指定されている型から、フィールド項目名を選択可能とする。
@@ -136,19 +137,28 @@ namespace Vf.Windows.Forms
             var pis = type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty);
             foreach (var pi in pis)
             {
-                var propertyName = parentTree == "" ? pi.Name : parentTree + "->" + pi.Name;
-                result.Add(propertyName);
+                var propertyName = parentTree == "" ? pi.Name : parentTree + "." + pi.Name;
 
-                // ジェネリック型でない場合は次のプロパティへ
-                if (!pi.PropertyType.IsGenericType)
+                // FieldMapAttributeが存在するプロパティのみ対象とする
+                var attr = Attribute.GetCustomAttribute(pi, typeof(MapFiledNameAttribute));
+                if (attr == null)
                 {
                     continue;
                 }
 
-                // ジェネリックの場合、指定されている型のプロパティもすべて走査する
-                foreach (var genericType in pi.PropertyType.GenericTypeArguments)
+                result.Add(propertyName);
+
+                if (pi.PropertyType.IsGenericType)
                 {
-                    result.AddRange(this.ScanProperties(genericType, propertyName));
+                    // ジェネリックの場合、指定されている型のプロパティも走査する
+                    foreach (var genericType in pi.PropertyType.GenericTypeArguments)
+                    {
+                        result.AddRange(this.ScanProperties(genericType, propertyName));
+                    }
+                }
+                else
+                {
+                    result.AddRange(this.ScanProperties(pi.PropertyType, propertyName));
                 }
             }
 

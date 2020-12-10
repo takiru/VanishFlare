@@ -15,7 +15,7 @@
     SaveOutput(generatedFilePath, project);
 #>
 <#+
-	private const string TargetNamespace = "Sample.Models";
+	private const string TargetNamespace = "Sample.MapFields";
 	private const string OutputFileName = "FieldControlMapR.cs";
 
     // 対象名前空間に存在するクラス情報を得る。
