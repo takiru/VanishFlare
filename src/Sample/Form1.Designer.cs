@@ -50,6 +50,7 @@
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap1 = new Sample.MapFieldControls.ListItemFieldControlMap();
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap2 = new Sample.MapFieldControls.ListItemFieldControlMap();
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap3 = new Sample.MapFieldControls.ListItemFieldControlMap();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.nameText = new VanishFlare.Windows.Forms.VfMapTextBox();
@@ -80,11 +81,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.userIdItemText = new Sample.MapFieldControls.UserInfoItemTextBox();
             this.completeTestListItemTextBox1 = new Sample.MapFieldControls.SimpleItemTextBox();
             this.srComboBoxItemTextBox1 = new Sample.MapFieldControls.ListItemTextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telText)).BeginInit();
@@ -102,10 +102,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(534, 282);
+            this.dataGridView1.Location = new System.Drawing.Point(675, 282);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(99, 150);
             this.dataGridView1.TabIndex = 19;
             // 
             // label1
@@ -127,7 +127,7 @@
             stringFieldControlMap1.FieldName = "OrderHistories";
             this.nameText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
         stringFieldControlMap1};
-            this.nameText.Location = new System.Drawing.Point(72, 208);
+            this.nameText.Location = new System.Drawing.Point(72, 233);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(100, 19);
             this.nameText.TabIndex = 23;
@@ -142,7 +142,7 @@
             stringFieldControlMap2.FieldName = "OrderHistories";
             this.telText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
         stringFieldControlMap2};
-            this.telText.Location = new System.Drawing.Point(72, 233);
+            this.telText.Location = new System.Drawing.Point(72, 258);
             this.telText.Name = "telText";
             this.telText.Size = new System.Drawing.Size(100, 19);
             this.telText.TabIndex = 24;
@@ -157,7 +157,7 @@
             stringFieldControlMap3.FieldName = "OrderHistories";
             this.departmentIdText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
         stringFieldControlMap3};
-            this.departmentIdText.Location = new System.Drawing.Point(72, 256);
+            this.departmentIdText.Location = new System.Drawing.Point(72, 281);
             this.departmentIdText.Name = "departmentIdText";
             this.departmentIdText.Size = new System.Drawing.Size(100, 19);
             this.departmentIdText.TabIndex = 22;
@@ -165,7 +165,7 @@
             // departmentNameLabel
             // 
             this.departmentNameLabel.AutoSize = true;
-            this.departmentNameLabel.Location = new System.Drawing.Point(176, 261);
+            this.departmentNameLabel.Location = new System.Drawing.Point(176, 286);
             this.departmentNameLabel.Name = "departmentNameLabel";
             this.departmentNameLabel.Size = new System.Drawing.Size(97, 12);
             this.departmentNameLabel.TabIndex = 26;
@@ -177,7 +177,7 @@
             this.orderHistoriesDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orderId,
             this.orderName});
-            this.orderHistoriesDgv.Location = new System.Drawing.Point(6, 285);
+            this.orderHistoriesDgv.Location = new System.Drawing.Point(6, 310);
             this.orderHistoriesDgv.Name = "orderHistoriesDgv";
             this.orderHistoriesDgv.RowTemplate.Height = 21;
             this.orderHistoriesDgv.Size = new System.Drawing.Size(274, 102);
@@ -197,7 +197,7 @@
             // 
             // metDateTimePicker1
             // 
-            this.metDateTimePicker1.Location = new System.Drawing.Point(358, 246);
+            this.metDateTimePicker1.Location = new System.Drawing.Point(580, 249);
             this.metDateTimePicker1.Name = "metDateTimePicker1";
             this.metDateTimePicker1.Size = new System.Drawing.Size(200, 19);
             this.metDateTimePicker1.TabIndex = 5;
@@ -206,7 +206,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(358, 282);
+            this.checkBox1.Location = new System.Drawing.Point(580, 285);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 16);
             this.checkBox1.TabIndex = 6;
@@ -216,7 +216,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(358, 305);
+            this.radioButton1.Location = new System.Drawing.Point(580, 308);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(88, 16);
             this.radioButton1.TabIndex = 7;
@@ -231,28 +231,28 @@
             "aaa",
             "bbb",
             "ccc"});
-            this.comboBox1.Location = new System.Drawing.Point(358, 328);
+            this.comboBox1.Location = new System.Drawing.Point(580, 331);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 8;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(689, 191);
+            this.textBox3.Location = new System.Drawing.Point(692, 137);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 19);
             this.textBox3.TabIndex = 20;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(358, 142);
+            this.textBox1.Location = new System.Drawing.Point(580, 224);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(183, 19);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(346, 387);
+            this.textBox2.Location = new System.Drawing.Point(580, 357);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(153, 19);
             this.textBox2.TabIndex = 17;
@@ -274,7 +274,7 @@
             stringFieldControlMap4.FieldName = "Column1";
             this.srStringTextBox1.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
         stringFieldControlMap4};
-            this.srStringTextBox1.Location = new System.Drawing.Point(349, 80);
+            this.srStringTextBox1.Location = new System.Drawing.Point(583, 199);
             this.srStringTextBox1.Name = "srStringTextBox1";
             this.srStringTextBox1.Size = new System.Drawing.Size(100, 19);
             this.srStringTextBox1.TabIndex = 9;
@@ -282,7 +282,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(349, 62);
+            this.label2.Location = new System.Drawing.Point(583, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 12;
@@ -291,7 +291,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(580, 96);
+            this.label3.Location = new System.Drawing.Point(583, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 12);
             this.label3.TabIndex = 13;
@@ -300,7 +300,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(580, 177);
+            this.label4.Location = new System.Drawing.Point(583, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(136, 12);
             this.label4.TabIndex = 14;
@@ -308,7 +308,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(582, 66);
+            this.button2.Location = new System.Drawing.Point(585, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -346,6 +346,7 @@
             this.userIdText.Size = new System.Drawing.Size(100, 19);
             this.userIdText.TabIndex = 21;
             this.userIdText.CandidateBoxOpening += new System.EventHandler(this.userIdText_CandidateBoxOpening);
+            this.userIdText.CandidateSelected += new Metroit.Windows.Forms.CandidateSelectedEventHandler(this.userIdText_CandidateSelected);
             // 
             // remapSimpleButton
             // 
@@ -369,8 +370,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.userIdItemText);
             this.groupBox1.Controls.Add(this.label8);
@@ -387,7 +387,7 @@
             this.groupBox1.Controls.Add(this.telText);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 401);
+            this.groupBox1.Size = new System.Drawing.Size(426, 426);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EntityFramework";
@@ -395,7 +395,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 165);
+            this.label9.Location = new System.Drawing.Point(6, 190);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
             this.label9.TabIndex = 33;
@@ -404,7 +404,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 259);
+            this.label8.Location = new System.Drawing.Point(6, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 12);
             this.label8.TabIndex = 32;
@@ -413,7 +413,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 236);
+            this.label7.Location = new System.Drawing.Point(6, 261);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 12);
             this.label7.TabIndex = 31;
@@ -422,7 +422,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 211);
+            this.label6.Location = new System.Drawing.Point(6, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 12);
             this.label6.TabIndex = 30;
@@ -436,25 +436,6 @@
             this.label5.Size = new System.Drawing.Size(16, 12);
             this.label5.TabIndex = 29;
             this.label5.Text = "ID";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 71);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(314, 12);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "object is referenced and does not return to its original value";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 92);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(438, 12);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Recreate the candidate and reload the object if it matches the text of ValueMembe" +
-    "r.";
             // 
             // userIdItemText
             // 
@@ -481,11 +462,12 @@
         userInfoFieldControlMap3,
         userInfoFieldControlMap4,
         userInfoFieldControlMap5};
-            this.userIdItemText.Location = new System.Drawing.Point(72, 162);
+            this.userIdItemText.Location = new System.Drawing.Point(72, 187);
             this.userIdItemText.Name = "userIdItemText";
             this.userIdItemText.Size = new System.Drawing.Size(100, 19);
             this.userIdItemText.TabIndex = 30;
             this.userIdItemText.CandidateBoxOpening += new System.EventHandler(this.userIdItemText_CandidateBoxOpening);
+            this.userIdItemText.CandidateSelected += new Metroit.Windows.Forms.CandidateSelectedEventHandler(this.userIdItemText_CandidateSelected);
             // 
             // completeTestListItemTextBox1
             // 
@@ -513,7 +495,7 @@
         simpleItemFieldControlMap3,
         simpleItemFieldControlMap4,
         simpleItemFieldControlMap5};
-            this.completeTestListItemTextBox1.Location = new System.Drawing.Point(582, 114);
+            this.completeTestListItemTextBox1.Location = new System.Drawing.Point(585, 60);
             this.completeTestListItemTextBox1.Name = "completeTestListItemTextBox1";
             this.completeTestListItemTextBox1.Size = new System.Drawing.Size(100, 19);
             this.completeTestListItemTextBox1.TabIndex = 11;
@@ -538,10 +520,20 @@
         listItemFieldControlMap1,
         listItemFieldControlMap2,
         listItemFieldControlMap3};
-            this.srComboBoxItemTextBox1.Location = new System.Drawing.Point(582, 192);
+            this.srComboBoxItemTextBox1.Location = new System.Drawing.Point(585, 138);
             this.srComboBoxItemTextBox1.Name = "srComboBoxItemTextBox1";
             this.srComboBoxItemTextBox1.Size = new System.Drawing.Size(100, 19);
             this.srComboBoxItemTextBox1.TabIndex = 10;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(8, 72);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(408, 83);
+            this.textBox4.TabIndex = 30;
+            this.textBox4.Text = resources.GetString("textBox4.Text");
             // 
             // Form1
             // 
@@ -566,6 +558,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -620,8 +613,7 @@
         private System.Windows.Forms.Label label5;
         private MapFieldControls.UserInfoItemTextBox userIdItemText;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

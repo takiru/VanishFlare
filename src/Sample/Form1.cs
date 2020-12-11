@@ -19,7 +19,17 @@ namespace Sample
         public Form1()
         {
             InitializeComponent();
+
+            #region EntityFramework
+
             orderHistoriesDgv.AutoGenerateColumns = false;
+            bindingSource.DataSource = userInfo;
+            userIdText.DataBindings.Add("Text", bindingSource, "Id", false, DataSourceUpdateMode.OnValidation);
+            nameText.DataBindings.Add("Text", bindingSource, "Name", false, DataSourceUpdateMode.OnValidation);
+            telText.DataBindings.Add("Text", bindingSource, "Tel", false, DataSourceUpdateMode.OnValidation);
+            departmentIdText.DataBindings.Add("Text", bindingSource, "DepartmentId", false, DataSourceUpdateMode.OnValidation);
+
+            #endregion
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -117,14 +127,29 @@ namespace Sample
 
         #region EntityFramework
 
+        private UserInfo userInfo = new UserInfo();
+        private BindingSource bindingSource = new BindingSource();
+
         private void userIdText_CandidateBoxOpening(object sender, EventArgs e)
         {
             userIdText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
         }
 
+        private void userIdText_CandidateSelected(object sender, Metroit.Windows.Forms.CandidateSelectedEventArgs e)
+        {
+            userInfo = (UserInfo)e.SelectedItem;
+            bindingSource.DataSource = userInfo;
+        }
+
         private void userIdItemText_CandidateBoxOpening(object sender, EventArgs e)
         {
             userIdItemText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
+        }
+
+        private void userIdItemText_CandidateSelected(object sender, Metroit.Windows.Forms.CandidateSelectedEventArgs e)
+        {
+            userInfo = (UserInfo)e.SelectedItem;
+            bindingSource.DataSource = userInfo;
         }
 
         private void remapSimpleButton_Click(object sender, EventArgs e)

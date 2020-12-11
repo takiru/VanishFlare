@@ -120,4 +120,12 @@
   <metadata name="orderId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>・オブジェクトは参照されるため、MapFields()を行っても元に戻りません。
+・CustomAutoCompleteBox.DataSourceを再生成し、
+　CustomAutoCompleteBox.DecideItemForText()によってDisplayMemberの値と
+　合致するアイテムを再選択することによってオブジェクトを再ロードすることができます。
+・BindingSourceオブジェクトと、コントロールのDataBindingsを利用することで、
+　MapFields()のテキスト値の動作を同期させることができます。</value>
+  </data>
 </root>
