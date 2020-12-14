@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap1 = new VanishFlare.Windows.Forms.StringFieldControlMap();
-            VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap2 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap3 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap4 = new VanishFlare.Windows.Forms.StringFieldControlMap();
+            VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap1 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap5 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap6 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap7 = new VanishFlare.Windows.Forms.StringFieldControlMap();
             VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap8 = new VanishFlare.Windows.Forms.StringFieldControlMap();
-            VanishFlare.Windows.Forms.StringFieldControlMap stringFieldControlMap9 = new VanishFlare.Windows.Forms.StringFieldControlMap();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             Sample.MapFieldControls.UserInfoFieldControlMap userInfoFieldControlMap1 = new Sample.MapFieldControls.UserInfoFieldControlMap();
             Sample.MapFieldControls.UserInfoFieldControlMap userInfoFieldControlMap2 = new Sample.MapFieldControls.UserInfoFieldControlMap();
             Sample.MapFieldControls.UserInfoFieldControlMap userInfoFieldControlMap3 = new Sample.MapFieldControls.UserInfoFieldControlMap();
@@ -50,13 +49,11 @@
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap1 = new Sample.MapFieldControls.ListItemFieldControlMap();
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap2 = new Sample.MapFieldControls.ListItemFieldControlMap();
             Sample.MapFieldControls.ListItemFieldControlMap listItemFieldControlMap3 = new Sample.MapFieldControls.ListItemFieldControlMap();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.departmentNameLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameText = new VanishFlare.Windows.Forms.VfMapTextBox();
             this.telText = new VanishFlare.Windows.Forms.VfMapTextBox();
             this.departmentIdText = new VanishFlare.Windows.Forms.VfMapTextBox();
-            this.departmentNameLabel = new System.Windows.Forms.Label();
             this.orderHistoriesDgv = new System.Windows.Forms.DataGridView();
             this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +61,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -76,6 +74,7 @@
             this.remapSimpleButton = new System.Windows.Forms.Button();
             this.remapReSearchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -84,13 +83,13 @@
             this.userIdItemText = new Sample.MapFieldControls.UserInfoItemTextBox();
             this.completeTestListItemTextBox1 = new Sample.MapFieldControls.SimpleItemTextBox();
             this.srComboBoxItemTextBox1 = new Sample.MapFieldControls.ListItemTextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.isValidCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nameText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentIdText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistoriesDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metDateTimePicker1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.srStringTextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userIdText)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -99,14 +98,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.srComboBoxItemTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // departmentNameLabel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(675, 282);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(99, 150);
-            this.dataGridView1.TabIndex = 19;
+            this.departmentNameLabel.AutoSize = true;
+            this.departmentNameLabel.Location = new System.Drawing.Point(176, 286);
+            this.departmentNameLabel.Name = "departmentNameLabel";
+            this.departmentNameLabel.Size = new System.Drawing.Size(97, 12);
+            this.departmentNameLabel.TabIndex = 26;
+            this.departmentNameLabel.Text = "Department Name";
             // 
             // label1
             // 
@@ -123,10 +122,7 @@
             // 
             // 
             this.nameText.CustomAutoCompleteBox.TargetControl = this.nameText;
-            stringFieldControlMap1.Control = this.dataGridView1;
-            stringFieldControlMap1.FieldName = "OrderHistories";
-            this.nameText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
-        stringFieldControlMap1};
+            this.nameText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[0];
             this.nameText.Location = new System.Drawing.Point(72, 233);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(100, 19);
@@ -138,10 +134,7 @@
             // 
             // 
             this.telText.CustomAutoCompleteBox.TargetControl = this.telText;
-            stringFieldControlMap2.Control = this.dataGridView1;
-            stringFieldControlMap2.FieldName = "OrderHistories";
-            this.telText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
-        stringFieldControlMap2};
+            this.telText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[0];
             this.telText.Location = new System.Drawing.Point(72, 258);
             this.telText.Name = "telText";
             this.telText.Size = new System.Drawing.Size(100, 19);
@@ -153,23 +146,15 @@
             // 
             // 
             this.departmentIdText.CustomAutoCompleteBox.TargetControl = this.departmentIdText;
-            stringFieldControlMap3.Control = this.dataGridView1;
-            stringFieldControlMap3.FieldName = "OrderHistories";
+            stringFieldControlMap3.Control = this.departmentNameLabel;
+            stringFieldControlMap3.FieldName = "Name";
             this.departmentIdText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
         stringFieldControlMap3};
             this.departmentIdText.Location = new System.Drawing.Point(72, 281);
             this.departmentIdText.Name = "departmentIdText";
             this.departmentIdText.Size = new System.Drawing.Size(100, 19);
             this.departmentIdText.TabIndex = 22;
-            // 
-            // departmentNameLabel
-            // 
-            this.departmentNameLabel.AutoSize = true;
-            this.departmentNameLabel.Location = new System.Drawing.Point(176, 286);
-            this.departmentNameLabel.Name = "departmentNameLabel";
-            this.departmentNameLabel.Size = new System.Drawing.Size(97, 12);
-            this.departmentNameLabel.TabIndex = 26;
-            this.departmentNameLabel.Text = "Department Name";
+            this.departmentIdText.TextChanged += new System.EventHandler(this.departmentIdText_TextChanged);
             // 
             // orderHistoriesDgv
             // 
@@ -235,6 +220,15 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 8;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(675, 282);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.Size = new System.Drawing.Size(99, 150);
+            this.dataGridView1.TabIndex = 19;
             // 
             // textBox3
             // 
@@ -323,24 +317,23 @@
             // 
             this.userIdText.CustomAutoCompleteBox.DisplayMember = "Id";
             this.userIdText.CustomAutoCompleteBox.TargetControl = this.userIdText;
-            this.userIdText.CustomAutoCompleteBox.ValueMember = "Id";
             this.userIdText.CustomAutoCompleteMode = Metroit.Windows.Forms.CustomAutoCompleteMode.KeysSuggest;
-            stringFieldControlMap5.Control = this.nameText;
-            stringFieldControlMap5.FieldName = "Name";
-            stringFieldControlMap6.Control = this.telText;
-            stringFieldControlMap6.FieldName = "Tel";
-            stringFieldControlMap7.Control = this.departmentIdText;
-            stringFieldControlMap7.FieldName = "DepartmentId";
-            stringFieldControlMap8.Control = this.departmentNameLabel;
-            stringFieldControlMap8.FieldName = "Department.Name";
-            stringFieldControlMap9.Control = this.orderHistoriesDgv;
-            stringFieldControlMap9.FieldName = "OrderHistories";
+            stringFieldControlMap1.Control = this.nameText;
+            stringFieldControlMap1.FieldName = "Name";
+            stringFieldControlMap5.Control = this.telText;
+            stringFieldControlMap5.FieldName = "Tel";
+            stringFieldControlMap6.Control = this.departmentIdText;
+            stringFieldControlMap6.FieldName = "DepartmentId";
+            stringFieldControlMap7.Control = this.departmentNameLabel;
+            stringFieldControlMap7.FieldName = "Department.Name";
+            stringFieldControlMap8.Control = this.orderHistoriesDgv;
+            stringFieldControlMap8.FieldName = "OrderHistories";
             this.userIdText.FieldControlMaps = new VanishFlare.Windows.Forms.StringFieldControlMap[] {
+        stringFieldControlMap1,
         stringFieldControlMap5,
         stringFieldControlMap6,
         stringFieldControlMap7,
-        stringFieldControlMap8,
-        stringFieldControlMap9};
+        stringFieldControlMap8};
             this.userIdText.Location = new System.Drawing.Point(72, 18);
             this.userIdText.Name = "userIdText";
             this.userIdText.Size = new System.Drawing.Size(100, 19);
@@ -370,6 +363,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.isValidCheckBox);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.userIdItemText);
@@ -391,6 +385,16 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EntityFramework";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(8, 72);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(408, 83);
+            this.textBox4.TabIndex = 30;
+            this.textBox4.Text = resources.GetString("textBox4.Text");
             // 
             // label9
             // 
@@ -525,15 +529,15 @@
             this.srComboBoxItemTextBox1.Size = new System.Drawing.Size(100, 19);
             this.srComboBoxItemTextBox1.TabIndex = 10;
             // 
-            // textBox4
+            // isValidCheckBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 72);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(408, 83);
-            this.textBox4.TabIndex = 30;
-            this.textBox4.Text = resources.GetString("textBox4.Text");
+            this.isValidCheckBox.AutoSize = true;
+            this.isValidCheckBox.Location = new System.Drawing.Point(357, 20);
+            this.isValidCheckBox.Name = "isValidCheckBox";
+            this.isValidCheckBox.Size = new System.Drawing.Size(48, 16);
+            this.isValidCheckBox.TabIndex = 34;
+            this.isValidCheckBox.Text = "有効";
+            this.isValidCheckBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -561,12 +565,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.telText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentIdText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderHistoriesDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metDateTimePicker1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.srStringTextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userIdText)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -614,6 +618,7 @@
         private MapFieldControls.UserInfoItemTextBox userIdItemText;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.CheckBox isValidCheckBox;
     }
 }
 

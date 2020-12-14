@@ -16,19 +16,67 @@ namespace VanishFlare.Windows.Forms
     public class FieldsMap
     {
         /// <summary>
+        /// コントロールのマッピングを検証しているときに発生します。
+        /// </summary>
+        public ControlMappingEventHandler ControlMapping { get; set; } = null;
+
+        /// <summary>
+        /// コントロールのマッピングが検証された後に発生します。
+        /// </summary>
+        public ControlMappedEventhander ControlMapped { get; set; } = null;
+
+        /// <summary>
         /// 選択されたアイテムの内容を、指定されたコントロールへマッピングを行います。
         /// </summary>
         /// <param name="fieldTextMaps">FieldControlMap オブジェクト。</param>
         /// <param name="item">選択されたアイテムオブジェクト。</param>
         public void Map(FieldControlMapBase[] fieldTextMaps, object item)
         {
+            if (item == null)
+            {
+                foreach (var m in fieldTextMaps)
+                {
+                    var tree = CreateFieldItemTree(m.FieldName);
+
+                    var mappingEa = new ControlMappingEventArgs(m.Control, m.FieldName, null);
+                    ControlMapping?.Invoke(this, mappingEa);
+                    if (mappingEa.Cancel)
+                    {
+                        continue;
+                    }
+
+                    MapToControl(m.Control, null);
+
+                    var mappedEa = new ControlMappedEventArgs(m.Control, m.FieldName, null);
+                    ControlMapped?.Invoke(this, mappedEa);
+                }
+                return;
+            }
+
             // SelectedItem が DataRowの場合
             var row = item as DataRow;
             if (row != null)
             {
                 foreach (var m in fieldTextMaps)
                 {
-                    MapToControl(m.Control, row[m.FieldName]);
+                    if (!row.Table.Columns.Contains(m.FieldName))
+                    {
+                        throw new ArgumentException("指定されたプロパティは無効です。:" + m.FieldName);
+                    }
+
+                    var value = row[m.FieldName];
+
+                    var mappingEa = new ControlMappingEventArgs(m.Control, m.FieldName, value);
+                    ControlMapping?.Invoke(this, mappingEa);
+                    if (mappingEa.Cancel)
+                    {
+                        continue;
+                    }
+
+                    MapToControl(m.Control, value);
+
+                    var mappedEa = new ControlMappedEventArgs(m.Control, m.FieldName, value);
+                    ControlMapped?.Invoke(this, mappedEa);
                 }
                 return;
             }
@@ -38,7 +86,18 @@ namespace VanishFlare.Windows.Forms
             {
                 var tree = CreateFieldItemTree(m.FieldName);
                 var value = GetTargetValue(tree, item);
+
+                var mappingEa = new ControlMappingEventArgs(m.Control, m.FieldName, value);
+                ControlMapping?.Invoke(this, mappingEa);
+                if (mappingEa.Cancel)
+                {
+                    continue;
+                }
+
                 MapToControl(m.Control, value);
+
+                var mappedEa = new ControlMappedEventArgs(m.Control, m.FieldName, value);
+                ControlMapped?.Invoke(this, mappedEa);
             }
         }
 
@@ -82,6 +141,10 @@ namespace VanishFlare.Windows.Forms
         private object GetTargetValue(FieldItemTree tree, object item)
         {
             var d = TypeDescriptor.GetProperties(item).Find(tree.FieldName, true);
+            if (d == null)
+            {
+                throw new ArgumentException("指定されたプロパティは無効です。:" + tree.FieldName);
+            }
             var v = d.GetValue(item);
 
             // 最終子データなら値確定
@@ -170,7 +233,7 @@ namespace VanishFlare.Windows.Forms
                 return;
             }
 
-            control.Text = value.ToString();
+            control.Text = value?.ToString();
         }
 
         /// <summary>
@@ -216,7 +279,8 @@ namespace VanishFlare.Windows.Forms
             if (value is DateTime)
             {
                 control.Value = (DateTime)value;
-            } else
+            }
+            else
             {
                 control.Value = DateTime.Parse(value.ToString());
             }

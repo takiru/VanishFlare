@@ -120,6 +120,9 @@
   <metadata name="orderId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="orderId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="textBox4.Text" xml:space="preserve">
     <value>・オブジェクトは参照されるため、MapFields()を行っても元に戻りません。
 ・CustomAutoCompleteBox.DataSourceを再生成し、

@@ -67,6 +67,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows.Forms\ControlMappedEventhander.cs" />
+    <Compile Include="Windows.Forms\ControlMappedEventArgs.cs" />
+    <Compile Include="Windows.Forms\ControlMappingEventArgs.cs" />
+    <Compile Include="Windows.Forms\ControlMappingEventHandler.cs" />
     <Compile Include="Windows.Forms\FieldControlMapBase.cs" />
     <Compile Include="Windows.Forms\FieldItemTree.cs" />
     <Compile Include="Windows.Forms\FieldListConverter.cs" />

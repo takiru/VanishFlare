@@ -12,6 +12,42 @@ namespace VanishFlare.Windows.Forms
     /// <typeparam name="T"></typeparam>
     public abstract class VfLimitedTextBoxBase<T> : MetLimitedTextBox, IFieldComtrolMaps<T> where T : FieldControlMapBase
     {
+        private FieldsMap fieldsMap = new FieldsMap();
+
+        /// <summary>
+        /// コントロールのマッピングを検証しているときに発生します。
+        /// </summary>
+        [Category("VanishFlare 動作")]
+        [Description("コントロールのマッピングを検証しているときに発生します。")]
+        public event ControlMappingEventHandler ControlMapping;
+
+        /// <summary>
+        /// コントロールのマッピングが検証された後に発生します。
+        /// </summary>
+        [Category("VanishFlare 動作")]
+        [Description("コントロールのマッピングが検証された後に発生します。")]
+        public event ControlMappedEventhander ControlMapped;
+
+        /// <summary>
+        /// コントロールのマッピングを検証しているときに発生します。
+        /// </summary>
+        /// <param name="sender">実行発生オブジェクト。</param>
+        /// <param name="e">ControlMappingEventArgs オブジェクト。</param>
+        protected virtual void OnControlMapping(object sender, ControlMappingEventArgs e)
+        {
+            ControlMapping?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// コントロールのマッピングが検証された後に発生します。
+        /// </summary>
+        /// <param name="sender">実行発生オブジェクト。</param>
+        /// <param name="e">ControlMappedEventArgs オブジェクト。</param>
+        protected virtual void OnControlMapped(object sender, ControlMappedEventArgs e)
+        {
+            ControlMapped?.Invoke(sender, e);
+        }
+
         /// <summary>
         /// 新しい VfLimitedTextBoxBase のインスタンスを生成します。
         /// </summary>
@@ -22,6 +58,8 @@ namespace VanishFlare.Windows.Forms
                 return;
             }
             this.CandidateSelected += (s, e) => { this.MapFields(); };
+            fieldsMap.ControlMapping = OnControlMapping;
+            fieldsMap.ControlMapped = OnControlMapped;
         }
 
         /// <summary>
@@ -34,13 +72,18 @@ namespace VanishFlare.Windows.Forms
         /// <summary>
         /// 選択されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
         /// </summary>
-        public virtual void MapFields()
+        public void MapFields()
         {
-            if (this.CustomAutoCompleteBox.SelectedItem == null)
-            {
-                return;
-            }
-            (new FieldsMap()).Map(this.FieldControlMaps, this.CustomAutoCompleteBox.SelectedItem);
+            fieldsMap.Map(this.FieldControlMaps, this.CustomAutoCompleteBox.SelectedItem);
+        }
+
+        /// <summary>
+        /// 指定されたアイテムオブジェクトから、フィールドとコントロールをマッピングします。
+        /// </summary>
+        /// <param name="items">アイテムオブジェクト。</param>
+        public void MapFields(object items)
+        {
+            fieldsMap.Map(this.FieldControlMaps, items);
         }
     }
 }

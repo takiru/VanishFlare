@@ -45,6 +45,11 @@ namespace Sample.Entities
         [MapFiledName]
         public string DepartmentId { get; set; }
 
+        [Required]
+        [Range(0, 1)]
+        [MapFiledName]
+        public int IsValid { get; set; }
+
         /// <summary>
         /// Š‘®‚µ‚Ä‚¢‚é•”‚ğæ“¾‚Ü‚½‚Íİ’è‚µ‚Ü‚·B
         /// </summary>

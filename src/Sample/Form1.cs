@@ -28,6 +28,9 @@ namespace Sample
             nameText.DataBindings.Add("Text", bindingSource, "Name", false, DataSourceUpdateMode.OnValidation);
             telText.DataBindings.Add("Text", bindingSource, "Tel", false, DataSourceUpdateMode.OnValidation);
             departmentIdText.DataBindings.Add("Text", bindingSource, "DepartmentId", false, DataSourceUpdateMode.OnValidation);
+            departmentNameLabel.DataBindings.Add("Text", bindingSource, "Department.Name", false, DataSourceUpdateMode.OnValidation);
+            orderHistoriesDgv.DataBindings.Add("DataSource", bindingSource, "OrderHistories", false, DataSourceUpdateMode.OnValidation);
+            isValidCheckBox.DataBindings.Add("Checked", bindingSource, "IsValid", false, DataSourceUpdateMode.OnValidation);
 
             #endregion
         }
@@ -152,6 +155,11 @@ namespace Sample
             bindingSource.DataSource = userInfo;
         }
 
+        private void departmentIdText_TextChanged(object sender, EventArgs e)
+        {
+            departmentIdText.MapFields((new DefaultDbContext()).Departments.Where(x => x.Id == departmentIdText.Text).FirstOrDefault());
+        }
+
         private void remapSimpleButton_Click(object sender, EventArgs e)
         {
             userIdText.MapFields();
@@ -160,7 +168,7 @@ namespace Sample
         private void remapReSearchButton_Click(object sender, EventArgs e)
         {
             userIdText.CustomAutoCompleteBox.DataSource = FindUserCandidate();
-            userIdText.CustomAutoCompleteBox.DecideItemForText(userIdText.Text);
+            userIdText.CustomAutoCompleteBox.SelectItem(userIdText.Text);
         }
 
         private List<UserInfo> FindUserCandidate()
